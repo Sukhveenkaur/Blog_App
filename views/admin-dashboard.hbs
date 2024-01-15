@@ -1,0 +1,83 @@
+ {{!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Add your CSS styles or include a CSS framework if needed -->
+</head>
+<body> --}}
+    {{!-- <h1>Admin Dashboard</h1>
+
+    {{#if pendingBlogs.length}}
+        <h2>Pending Blogs for Approval</h2>
+        <ul>
+            {{#each pendingBlogs}}
+                <li>
+                    <h3>{{this.title}}</h3>
+                    <p>{{this.content}}</p>
+                    <p>Submitted by: {{this.user.username}}</p>
+                    <img src="{{this.imageUrl}}" alt="Blog Image">
+                    <form method="post" action="/approve-blog/{{this._id}}">
+                        <button type="submit">Approve</button>
+                    </form>
+                    <form method="post" action="/deny-blog/{{this._id}}">
+                        <button type="submit">Deny</button>
+                    </form>
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>No pending blogs for approval.</p>
+    {{/if}}
+
+    <!-- Add your footer or additional content as needed --> --}}
+
+
+<!-- admin-dashboard.hbs -->
+
+{{!-- <h1>Admin Dashboard</h1>
+
+{{#each usersWithPendingBlogs}}
+  <h2>User: {{this.username}}</h2>
+
+  {{#each this.pendingBlogs}}
+    <div>
+      <p>Title: {{this.title}}</p>
+      <p>Content: {{this.content}}</p>
+      <!-- Display other blog details as needed -->
+      <a href="/approve-blog/{{this._id}}">Approve</a>
+      <a href="/deny-blog/{{this._id}}">Deny</a>
+    </div>
+  {{/each}}
+{{/each}}
+</body>
+</html>  --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <h1 class="text-3xl font-bold mb-4">Admin Dashboard</h1>
+
+    {{#each usersWithPendingBlogs}}
+      <h2 class="text-xl font-semibold mb-2">User: {{this.username}}</h2>
+
+      {{#each this.pendingBlogs}}
+        <div class="bg-white p-4 rounded shadow mb-4">
+          <p class="text-lg font-semibold">Title: {{this.title}}</p>
+          <p class="text-gray-700">Content: {{this.content}}</p>
+          <!-- Display other blog details as needed -->
+          {{!-- <img src="{{blog.imageUrl}}" alt="Blog Image" class="mt-4"> --}}
+          <img src="{{this.imageUrl}}" alt="Blog Image">
+          <a href="/approve-blog/{{this._id}}" class="text-green-500 hover:underline mr-2">Approve</a>
+          <a href="/deny-blog/{{this._id}}" class="text-red-500 hover:underline">Deny</a>
+        </div>
+      {{/each}}
+    {{/each}}
+</body>
+</html>
