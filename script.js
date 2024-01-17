@@ -14,7 +14,6 @@ hbs.registerHelper('eq', function (a, b) {
 dotenv.config();
 
 
-
 app.use(session({
     secret: 'keyboard cat',
 }));
