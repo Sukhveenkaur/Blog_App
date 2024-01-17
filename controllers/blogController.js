@@ -38,14 +38,7 @@ blogController.post("/addblog", async (req, res) => {
 
     res.send(script);
     }
-    // const script = `
-    //     <script>
-    //         alert('Blog added successfully! Pending approval from admin.');
-    //         window.location.href = '/';
-    //     </script>
-    // `;
-
-    // res.send(script);
+    
 });
 
 blogController.get("/myblog", async (req, res) => {

@@ -2,7 +2,8 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const User = require("../model/user");
-
+const dotenv = require("dotenv");
+dotenv.config();
 const authController = express.Router();
 
 function checkIsLoggedIN(req, res, next) {
@@ -28,7 +29,7 @@ const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'sukhveen.d@gmail.com', // Your Gmail address
-        pass: 'xkog mdys xrgp qgjm' // Your Gmail password
+        pass:process.env.pass // Your Gmail password
     }
 });
 authController.post("/register", async (req, res) => {
